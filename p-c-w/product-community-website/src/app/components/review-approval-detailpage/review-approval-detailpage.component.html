@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="card border-dark mb-3" style="max-width: 30rem">
+    <div class="card-header">
+      {{ review.reviewTitle }}
+    </div>
+    <div class="card-body text-dark">
+      <h5 class="card-title">Rating {{ review.reviewRating }}</h5>
+      <p class="card-text">
+        {{ review.reviewBody }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <div class="mb-3">
+      <label for="">Approve</label>
+      <div class="form-check">
+        <input
+          [(ngModel)]="review.reviewStatus"
+          type="radio"
+          class="form-check-input"
+          name="timePreferance"
+          value="true"
+        />
+        <label class="form-check-label">Done</label>
+      </div>
+    </div>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</div>

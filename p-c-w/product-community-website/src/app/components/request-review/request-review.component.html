@@ -1,0 +1,31 @@
+<form ngNativeValidate class="mt-5" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <input
+      type="text"
+      [(ngModel)]="product.productName"
+      name="productName"
+      placeholder="Product Name"
+      required
+    />
+  </div>
+  <div class="form-control">
+    <input
+      type="text"
+      [(ngModel)]="product.brand"
+      name="brand"
+      placeholder="Brand"
+      required
+    />
+  </div>
+  <div class="form-control">
+    <input
+      type="text"
+      [(ngModel)]="product.productCode"
+      name="productCode"
+      placeholder="Product Code"
+      required
+    />
+  </div>
+
+  <input type="submit" class="btn" />
+</form>

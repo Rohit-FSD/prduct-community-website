@@ -1,0 +1,29 @@
+<section class="showcase">
+  <header>
+    <h2><a class="logo">#Product Community Website</a></h2>
+  </header>
+  <div class="overlay"></div>
+  <div class="text">
+    <h2>The Community</h2>
+    <div *ngIf="loggedIn">
+      <button *ngIf="role == 'User'" routerLink="/requestReview" class="btn">
+        Ask For Review
+      </button>
+    </div>
+    <div *ngIf="loggedIn">
+      <button *ngIf="role == 'User'" routerLink="/products" class="btn">
+        Go To Product Page
+      </button>
+    </div>
+    <div *ngIf="loggedIn">
+      <button *ngIf="role !== 'User'" routerLink="/reviews" class="btn">
+        Approve Review
+      </button>
+    </div>
+  </div>
+  <ul class="social">
+    <li>
+      <a><app-stats></app-stats></a>
+    </li>
+  </ul>
+</section>

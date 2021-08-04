@@ -1,0 +1,39 @@
+<div class="details-section">
+  <div class="container-fluid">
+    <img class="mt-4" src="{{ product.imageUrl }}" />
+    <h2 class="mt-4">
+      <b
+        >{{ product.productName }}
+        <small> [Number Of Reviews]:{{ nor }}</small>
+      </b>
+    </h2>
+    <p>Average rating: {{ averageRating }}</p>
+    <div class="price">{{ product.productPrice | currency: "USD" }}</div>
+    <hr />
+    <h1 class="mt-4"><b>Reviews</b></h1>
+    <button routerLink="/postReview/{{ product.id }}" class="btn">
+      Add Review
+    </button>
+
+    <div *ngFor="let tempReview of reviews" class="container">
+      <div
+        *ngIf="tempReview.reviewStatus != null"
+        class="card border-dark mb-3"
+        style="max-width: 30rem"
+      >
+        <div class="card-header">
+          {{ tempReview.reviewTitle }}
+        </div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Rating {{ tempReview.reviewRating }}</h5>
+          <p class="card-text">
+            {{ tempReview.reviewBody }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <button routerLink="/products" class="btn-small btn btn-secondary mt-5">
+      Back To Product List
+    </button>
+  </div>
+</div>

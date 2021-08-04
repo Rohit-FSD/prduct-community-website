@@ -1,0 +1,54 @@
+<div class="main-content container">
+  <div class="row">
+    <div class="col-lg-3 col-md-6">
+      <form #userForm="ngForm">
+        <div class="form-group">
+          <div class="input-group ml-4 mb-3">
+            <select
+              name="reviewRating"
+              [(ngModel)]="product.brand"
+              class="custom-select"
+              required
+            >
+              <option value="">Select Brand</option>
+              <option *ngFor="let brand of brands">{{ brand }}</option>
+            </select>
+          </div>
+        </div>
+        <button (click)="sortByBrand()" class="btn ml-5 mb-5">
+          Filter By Brand
+        </button>
+      </form>
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <app-filter-by-code></app-filter-by-code>
+    </div>
+  </div>
+
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div *ngFor="let tempProduct of products" class="col-md-3">
+          <div class="product-box">
+            <a routerLink="/products/{{ tempProduct.id }}">
+              <img src="{{ tempProduct.imageUrl }}" class="img-responsive" />
+            </a>
+            <h1>
+              {{ tempProduct.productName }}
+            </h1>
+            <div class="price">
+              {{ tempProduct.productPrice | currency: "USD" }}
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="products?.length == 0"
+          class="alert alert-warning col-md-12"
+          role="alert"
+        >
+          NO PRODUCTS FOUND!!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

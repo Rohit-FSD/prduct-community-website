@@ -1,0 +1,13 @@
+<form ngNativeValidate (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <input
+      type="text"
+      name="productCode"
+      [(ngModel)]="product.productCode"
+      placeholder="Product Code"
+      required
+    />
+  </div>
+
+  <input type="submit" value="Filter" class="btn mt-3" />
+</form>

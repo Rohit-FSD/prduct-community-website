@@ -1,0 +1,41 @@
+<form ngNativeValidate class="mt-5" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <input
+      type="text"
+      [(ngModel)]="review.reviewTitle"
+      name="reviewTitle"
+      placeholder="Title"
+      required
+    />
+  </div>
+  <div>
+    <textarea
+      type="text"
+      [(ngModel)]="review.reviewBody"
+      name="reviewBody"
+      placeholder="Review"
+      style="width: 600px; height: 150px"
+      minlength="20"
+      maxlength="400"
+      required
+    ></textarea>
+  </div>
+
+  <div class="form-group mt-4">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Rating</label>
+      </div>
+      <select
+        name="reviewRating"
+        [(ngModel)]="review.reviewRating"
+        class="custom-select"
+        required
+      >
+        <option *ngFor="let rating of ratings">{{ rating }}</option>
+      </select>
+    </div>
+  </div>
+
+  <input type="submit" class="btn" />
+</form>
